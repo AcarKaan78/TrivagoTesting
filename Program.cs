@@ -21,6 +21,7 @@ class Program
 
         try
         {
+            DirectToTrivagoPage();
             EnterUsername();
             EnterPassword();
             SelectLocation();
@@ -43,9 +44,12 @@ class Program
 
     }
 
-    static void EnterUsername()
+    static void DirectToTrivagoPage()
     {
         driver.Navigate().GoToUrl("https://auth.trivago.com/tr");
+    }
+    static void EnterUsername()
+    {
         wait.Until(d => d.FindElement(By.Name("email"))).SendKeys("acarkaan2003@outlook.com");
         driver.FindElement(By.CssSelector("button[type='submit']")).Click();
         Console.WriteLine("Step 1: Enter username - Passed");
